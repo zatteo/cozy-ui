@@ -19,6 +19,7 @@ const useCozyDialog = props => {
     actionsLayout, // eslint-disable-line no-unused-vars
     title, // eslint-disable-line no-unused-vars
     content, // eslint-disable-line no-unused-vars
+    titleOptions, // eslint-disable-line no-unused-vars
     open,
     opened,
     onClose,
@@ -79,9 +80,17 @@ const useCozyDialog = props => {
     }
   }
 
+  const dialogContentClassName = 'dialogueContentOverflow'
+  const dialogContentProps = {
+    classes: {
+      root: dialogContentClassName
+    }
+  }
+
   return {
     dialogProps,
     dialogTitleProps,
+    dialogContentProps,
     listItemProps,
     id,
     fullScreen,

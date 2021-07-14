@@ -7,5 +7,6 @@ export default {
   content: PropTypes.node,
   actions: PropTypes.node,
   actionsLayout: PropTypes.oneOf(['row', 'column']),
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  titleOptions: PropTypes.node
 }

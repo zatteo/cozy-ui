@@ -10,10 +10,18 @@ import DialogBackButton from './DialogBackButton'
 import DialogCloseButton from './DialogCloseButton'
 
 const Dialog = props => {
-  const { onClose, title, content, actions, actionsLayout } = props
+  const {
+    onClose,
+    title,
+    content,
+    actions,
+    actionsLayout,
+    titleOptions
+  } = props
   const {
     dialogProps,
     dialogTitleProps,
+    dialogContentProps,
     fullScreen,
     id,
     dialogActionsProps
@@ -29,26 +37,39 @@ const Dialog = props => {
       )}
       <DialogTitle
         {...dialogTitleProps}
-        className={cx('u-ellipsis', { dialogTitleFull: !onClose })}
+        className={cx('u-ellipsis', {
+          dialogTitleFull: !onClose,
+          ['u-flex u-flex-justify-between']: titleOptions
+        })}
       >
-        {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
-        {title}
+        {titleOptions ? (
+          <>
+            <div>
+              {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
+              {title}
+            </div>
+            {titleOptions}
+          </>
+        ) : (
+          <>
+            {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
+            {title}
+          </>
+        )}
       </DialogTitle>
       <Divider />
-      <DialogContent>
-        <div className="dialogContentInner withFluidActions">
-          {content}
-          <DialogActions
-            {...dialogActionsProps}
-            disableSpacing
-            className={cx('dialogActionsFluid', {
-              columnLayout: actionsLayout == 'column'
-            })}
-          >
-            {actions}
-          </DialogActions>
-        </div>
+      <DialogContent {...dialogContentProps}>
+        <div className="dialogContentInner">{content}</div>
       </DialogContent>
+      <DialogActions
+        {...dialogActionsProps}
+        disableSpacing
+        className={cx({
+          columnLayout: actionsLayout == 'column'
+        })}
+      >
+        {actions}
+      </DialogActions>
     </MUIDialog>
   )
 }

@@ -492,6 +492,9 @@ const makeOverrides = theme => ({
       [theme.breakpoints.down('sm')]: {
         padding: '24px 16px 0'
       },
+      '&.dialogueContentOverflow': {
+        overflowY: 'initial'
+      },
       '& .dialogContentInner': {
         marginBottom: '24px',
         '&.withFluidActions': {
