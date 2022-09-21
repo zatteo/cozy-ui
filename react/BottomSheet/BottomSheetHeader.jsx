@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import Paper from 'cozy-ui/transpiled/react/Paper'
+import Paper from '../Paper'
 
 const BottomSheetHeader = ({ className, headerContentRef, children }) => {
   return (

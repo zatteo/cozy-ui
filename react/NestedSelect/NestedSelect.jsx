@@ -12,7 +12,7 @@ import ListItemIcon from '../MuiCozyTheme/ListItemIcon'
 import useBreakpoints from '../hooks/useBreakpoints'
 import Input from '../Input'
 import Typography from '../Typography'
-import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
+import RightIcon from '../Icons/Right'
 
 /**
  * Select like component to choose an option among a list of options.

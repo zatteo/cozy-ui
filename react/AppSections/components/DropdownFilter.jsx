@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import styles from './DropdownFilter.styl'
 import cx from 'classnames'
 
-import BottomIcon from 'cozy-ui/transpiled/react/Icons/Bottom'
+import BottomIcon from '../../Icons/Bottom'
 
 const SmallArrow = () => (
   <Icon

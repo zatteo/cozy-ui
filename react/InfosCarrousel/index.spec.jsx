@@ -5,7 +5,7 @@ import IconButton from '../IconButton'
 import Infos from '../Infos'
 import Button from '../Button'
 import SwipeableViews from 'react-swipeable-views'
-import Typography from 'cozy-ui/transpiled/react/Typography'
+import Typography from '../Typography'
 
 // This is necessary for tests to be predictable
 const swipeableProps = { disableLazyLoading: true }

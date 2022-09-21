@@ -3,7 +3,7 @@ import styles from './styles.styl'
 import cx from 'classnames'
 import Icon from '../Icon'
 import palette from '../palette'
-import CrossIcon from 'cozy-ui/transpiled/react/Icons/Cross'
+import CrossIcon from '../Icons/Cross'
 
 import useBreakpoints from '../hooks/useBreakpoints'
 

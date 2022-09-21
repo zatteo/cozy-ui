@@ -7,8 +7,8 @@ import Icon from '../Icon'
 
 import styles from './styles.styl'
 
-import DownloadIcon from 'cozy-ui/transpiled/react/Icons/Download'
-import FileIcon from 'cozy-ui/transpiled/react/Icons/File'
+import DownloadIcon from '../Icons/Download'
+import FileIcon from '../Icons/File'
 
 /**
  *

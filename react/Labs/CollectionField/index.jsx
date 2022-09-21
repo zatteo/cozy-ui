@@ -7,8 +7,8 @@ import Stack from '../../Stack'
 import Icon from '../../Icon'
 import { FieldContainer } from '../../Field'
 
-import CrossSmallIcon from 'cozy-ui/transpiled/react/Icons/CrossSmall'
-import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
+import CrossSmallIcon from '../../Icons/CrossSmall'
+import PlusIcon from '../../Icons/Plus'
 
 /**
  * Handles a collection of form fields.

@@ -10,7 +10,7 @@ import createDepreciationLogger from '../helpers/createDepreciationLogger'
 
 import styles from './styles.styl'
 
-import CrossIcon from 'cozy-ui/transpiled/react/Icons/Cross'
+import CrossIcon from '../Icons/Cross'
 
 export const Infos = ({
   description,

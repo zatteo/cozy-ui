@@ -3,7 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { Media, Bd, Img } from '../Media'
 import styles from './styles.styl'
-import Typography from 'cozy-ui/transpiled/react/Typography'
+import Typography from '../Typography'
 
 const denseStyle = { height: '48px' }
 

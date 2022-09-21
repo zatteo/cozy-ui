@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Media, Img, Bd } from '../../Media'
 import Icon from '../../Icon'
-import PeopleIcon from 'cozy-ui/transpiled/react/Icons/People'
+import PeopleIcon from '../../Icons/People'
 import TextField from '../../MuiCozyTheme/TextField'
 
 import { withContactsListLocales } from '../withContactsListLocales'

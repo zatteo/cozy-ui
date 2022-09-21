@@ -3,9 +3,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import CozyClient, { CozyProvider } from 'cozy-client'
-import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import CozyIcon from 'cozy-ui/transpiled/react/Icons/Cozy'
+import MuiCozyTheme from '../MuiCozyTheme'
+import Icon from '../Icon'
+import CozyIcon from '../Icons/Cozy'
 
 import SquareAppIcon from './index'
 
