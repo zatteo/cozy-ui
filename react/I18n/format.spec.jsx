@@ -36,12 +36,4 @@ describe('formatLocallyDistanceToNow', () => {
 
     expect(result).toEqual('about 2 hours')
   })
-
-  it('should not throw if a date-fns locale can not be found', () => {
-    jest.spyOn(console, 'warn').mockImplementation()
-
-    expect(() => formatLocallyDistanceToNow('unknown-lang')).not.toThrow()
-
-    console.warn.mockRestore()
-  })
 })

@@ -1,6 +1,6 @@
 import format from 'date-fns/format'
 import { DEFAULT_LANG } from '.'
-import formatDistanceToNow from 'date-fns/distance_in_words_to_now'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const locales = {}
 let lang = DEFAULT_LANG
