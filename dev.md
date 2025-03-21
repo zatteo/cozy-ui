@@ -19,10 +19,12 @@ remark -o --use remark-jscodeshift=allowNoLang:true,transform:\"codemods/transfo
 * Screenshot the new one inside screenshots
 * Run pixelmatch-server, which shows screenshots side by side like on Argos (you need the `pixelmatch` binary to be available)
 
+You have to change `executablePath` value of `prepareBrowser` function to match your OS configuration.
+
 ```bash
 # Screenshot all the components
-yarn makeSpriteAndPalette
-yarn build:doc:react
+yarn build:all
+mkdir -p ./screenshots
 yarn screenshots
 cp -r screenshots pristine_screenshots
 
