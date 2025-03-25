@@ -7575,9 +7575,11 @@ body {
 .c-apptitle-dark--13RM5 {
   fill: 'white';
 }
-.c-apptitle-icon--ZVxI5 {
+.c-apptitle-app-icon--oQp8q {
+  margin-right: 4px;
+}
+.c-apptitle-text-icon--3WSwO {
   width: auto;
-  fill: 'red';
 }
 
 .c-circle--1DuMR {
