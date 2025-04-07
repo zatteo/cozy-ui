@@ -636,6 +636,9 @@ body {
 .u-bg-white {
   background-color: var(--white) !important;
 }
+.u-bg-transparent--3__Oi {
+  background-color: transparent !important;
+}
 .u-bdrs-0 {
   border-radius: 0 !important;
 }
@@ -2498,6 +2501,9 @@ body {
 }
 .u-shake--jk9eC {
   animation-name: shake--2YFRJ;
+}
+.u-elevation-0--2pGVx {
+  box-shadow: none !important;
 }
 .u-elevation-1--3BDa_ {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,0.08);
@@ -7578,6 +7584,10 @@ body {
 .c-apptitle-app-icon--oQp8q {
   margin-right: 4px;
 }
+.c-apptitle-home-icon--1xJsd {
+  margin-top: 5px;
+  height: 26px;
+}
 
 .c-circle--1DuMR {
   --circleSize: 2.5rem;
@@ -9566,6 +9576,204 @@ body {
 .search-container--without-title--3P2fe {
   margin-right: 1rem;
   margin-top: 0.5rem;
+}
+
+.SquareAppIcon-wrapper--4P3Cx {
+  box-sizing: border-box;
+  border-radius: 100%;
+  height: 4rem;
+  width: 4rem;
+  transition: transform 300ms, border-radius 300ms;
+}
+@media (max-width: 48rem) {
+  .SquareAppIcon-wrapper--4P3Cx {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+.SquareAppIcon-wrapper--light--3LfPB {
+  background: linear-gradient(0deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.09) 100%), rgba(255,251,254,0.8);
+}
+.SquareAppIcon-wrapper--dark--kRx3L {
+  background: linear-gradient(0deg, #2c3039, #2c3039), linear-gradient(0deg, rgba(255,255,255,0.09), rgba(255,255,255,0.09));
+}
+.SquareAppIcon-icon-container--grFij {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+  border-radius: 100%;
+  width: 100%;
+}
+@media (max-width: 48rem) {
+  .SquareAppIcon-icon-container--grFij {
+    padding: 0.5rem;
+  }
+}
+.SquareAppIcon-icon-container--grFij svg,
+.SquareAppIcon-icon-container--grFij img {
+  width: 100%;
+}
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container--grFij {
+  mix-blend-mode: screen;
+}
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container--grFij svg,
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container--grFij img {
+  filter: saturate(0%);
+}
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container-normal--1O1bk {
+  mix-blend-mode: luminosity;
+}
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container-normal--1O1bk svg,
+.SquareAppIcon-wrapper-ghost--3xelE .SquareAppIcon-icon-container-normal--1O1bk img {
+  opacity: 0.5;
+}
+.SquareAppIcon-wrapper-maintenance--hoMUk .SquareAppIcon-icon-container--grFij {
+  mix-blend-mode: luminosity;
+}
+.SquareAppIcon-wrapper-maintenance--hoMUk .SquareAppIcon-icon-container--grFij svg,
+.SquareAppIcon-wrapper-maintenance--hoMUk .SquareAppIcon-icon-container--grFij img {
+  opacity: 0.5;
+}
+.SquareAppIcon-wrapper-loading--AoTRM {
+  border-radius: 50%;
+  transform: scale(0.875);
+}
+@media (max-width: 48rem) {
+  .SquareAppIcon-wrapper-loading--AoTRM {
+    transform: scale(0.8334);
+  }
+}
+.SquareAppIcon-spinner--UOK0n {
+  margin: 0 !important;
+}
+.SquareAppIcon-spinner--UOK0n svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.onEnd--GkZzo {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.onEnd--GkZzo svg {
+  fill: transparent !important;
+}
+.onEnd--GkZzo svg path {
+  animation-duration: 0.2s !important;
+}
+.onEnd--GkZzo svg path:first-of-type {
+  animation-delay: 0.2s !important;
+}
+.onEnd--GkZzo svg path+path {
+  animation-delay: 0.36s !important;
+}
+.onEnd--GkZzo svg * {
+  stroke: var(--white) !important;
+}
+.onEnd--GkZzo.isFailed--CO_WC {
+  --animationColor: var(--errorColor);
+}
+.onEnd--GkZzo.isSuccess--sH4pb {
+  --animationColor: var(--successColor);
+}
+.isSuccess--sH4pb,
+.isFailed--CO_WC {
+  animation: end-animation--26Lyd 1.5s forwards;
+}
+@-moz-keyframes end-animation--26Lyd {
+  0% {
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  13.33% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  66.67% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  100% {
+    border-radius: 100%;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+@-webkit-keyframes end-animation--26Lyd {
+  0% {
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  13.33% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  66.67% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  100% {
+    border-radius: 100%;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+@-o-keyframes end-animation--26Lyd {
+  0% {
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  13.33% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  66.67% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  100% {
+    border-radius: 100%;
+    opacity: 0;
+    background-color: transparent;
+  }
+}
+@keyframes end-animation--26Lyd {
+  0% {
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  13.33% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  66.67% {
+    background-color: var(--animationColor);
+    border-radius: 100%;
+    opacity: 1;
+  }
+  100% {
+    border-radius: 100%;
+    opacity: 0;
+    background-color: transparent;
+  }
 }
 
 .SquareAppIcon-wrapper--2SEuM {
