@@ -9595,7 +9595,7 @@ body {
   background: linear-gradient(0deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.09) 100%), rgba(255,251,254,0.8);
 }
 .SquareAppIcon-wrapper--dark--kRx3L {
-  background: linear-gradient(0deg, #2c3039, #2c3039), linear-gradient(0deg, rgba(255,255,255,0.09), rgba(255,255,255,0.09));
+  background: linear-gradient(0deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.09) 100%), #2c3039;
 }
 .SquareAppIcon-icon-container--grFij {
   display: flex;
