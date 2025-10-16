@@ -27,7 +27,7 @@ Check the [styleguide](https://docs.cozy.io/cozy-ui/styleguide/) to see all the 
 
 Add Cozy UI to a dependency to your project.
 
-```
+```bash
 yarn add cozy-ui
 ```
 
@@ -82,6 +82,15 @@ yarn start # Transpile the files in watch mode
 yarn build:css:all # Build CSS files needed by the documentation
 yarn start:doc # Run the styleguide in watch mode
 ```
+
+You may need to start css as well:
+
+```bash
+yarn start:css # Create cozy-ui css
+yarn start:css:utils # Create cozy-ui utility css
+```
+
+tips: If you are starting `js` and `css` to have full control, and you want to link results in an application, in addition to all your start process you need to launch `yarn build:js` each time you want to see your modification from cozy-ui inside your application.
 
 ### Add a component
 
@@ -190,17 +199,84 @@ Components in `cozy-ui` are showcased with [React Styleguidist][]. To prevent UI
 for each PR, each component is screenshotted and compared to the master version to find any
 regression (thanks [Argos][] !).
 
-If your app uses [React Styleguidist][], `cozy-ui` provides `rsg-screenshots`, a CLI tool to take
-screenshots of your components (uses Puppeteer under the hood).
+Before launching commands, you may need to change `executablePath` in `scripts/screenshots/prepares.js` to `/Applications/Chrome.app/Contents/MacOS/Chrome` or `/Applications/Chromium.app/Contents/MacOS/Chromium` depends on your system.
+
+Then you have to install dependencies:
 
 ```bash
-yarn add cozy-ui # The rsg-screenshots binary is now installed
-yarn makeSpriteAndPalette
-yarn build:doc:react # Build our styleguide, the output directory is docs/react
-rsg-screenshots --screenshot-dir screenshots/ --styleguide-dir docs/react # Each component in the styleguide will be screenshotted and saved inside the screenshots/ directory
+yarn add puppeteer@"22.15.0" --dev --exact
+```
+
+Before creating any screenshots, make sure you have built everything:
+
+```bash
+yarn build:all
+```
+
+Now you are ready to create screenshots:
+
+```bash
+mkdir -p ./screenshots
+yarn screenshots --mode react --viewport desktop --screenshot-dir ./screenshots/reactDesktop
+```
+
+You can also specify a component to screenshot by adding `--component NameOfTheComponent` and change viewport to mobile size:
+
+```bash
+yarn screenshots --mode react --viewport 300x600 --screenshot-dir ./screenshots/reactDesktop --component Sidebar
+```
+
+It may be interesting to create pristine screenshots, and then create screenshots of your modified component and compare them locally:
+
+```bash
+mkdir -p ./pristine_screenshots
+yarn screenshots --mode react --viewport desktop --screenshot-dir ./pristine_screenshots/reactDesktop --component Sidebar
+# make modifications on Sidebar component
+# build everything again
+# screenshot it as described before, then
+mkdir -p ./diffs
+yarn screenshots:server
 ```
 
 See our [travis configuration](https://github.com/cozy/cozy-ui/blob/master/.travis.yml) for more information.
+
+
+### Packages and depedencies
+
+Cozy-ui relies on many packages to work, but we tend to want it to be more agnostic. So this is the package list and usage:
+
+#### Dependecies
+
+- @date-io/date-fns => DatePicker
+- chart.js => PieChart
+- cozy-interapp => IntentIframe
+- date-fns => DateMonthPicker, DatePicker, I18n
+- filesize => FilePickerBodyItem
+- final-form, final-form-array => react-final-form, react-final-form-array => Contacts/AddModal
+- react-markdown => Markdown
+- react-select => Contacts/GroupsSelect, SelectBox
+- react-virtuoso => Table/Virtualized, GridList/Virtualized
+- rooks => BottomSheet, Table/Virtualized, UploadQueue
+
+#### Dependecies for deprecated components
+
+- @popperjs/core => react-popper => ActionMenu/NotInlineWrapper
+- react-remove-scroll => BottomDrawer, Overlay
+- react-swipeable-views => InfosCarroussel, ViewStack
+
+#### PeerDependencies
+
+- cozy-client => lot of components
+- cozy-device-helper => AppLinker, Dialog, Paywall, Storage
+- cozy-flags => AppSections, Paywall, QualificationGrid
+- cozy-intent => ActionsMenu, AppLinker, Dialog, Paywall, SelectionBar
+- react-dnd => Table/Virtualized/DnD, GridList/Virtualized/DnD
+- react-dnd-html5-backend => Table/Virtualized/DnD, GridList/Virtualized/DnD
+
+#### PeerDependencies for deprecated components
+
+- cozy-device-helper => ActionMenu, Modal
+
 
 ## License
 
