@@ -29,10 +29,10 @@ This is useful for agents because they can work from a concise `SKILL.md` instea
 
 ### What the skill provides
 
-- A short Cozy UI overview for agents
-- A generated React component reference with imports, examples and extracted props
-- A CSS utility reference for spacing, typography, colors and legacy classes
-- Guidance to prefer Cozy UI components and theme conventions when building Cozy apps
+* A short Cozy UI overview for agents
+* A generated React component reference with imports, examples and extracted props
+* A CSS utility reference for spacing, typography, colors and legacy classes
+* Guidance to prefer Cozy UI components and theme conventions when building Cozy apps
 
 ### Generate the skill
 
@@ -135,7 +135,7 @@ First `nvm use` (to set node version as defined in .nvmrc) then `yarn install`
 It is convenient when modifying a component to use the styleguide site.
 
 ```bash
-yarn makeSpriteAndPalette # Create sprite and palette
+yarn makePalette # Create palette
 yarn start # Transpile the files in watch mode
 yarn build:css:all # Build CSS files needed by the documentation
 yarn start:doc # Run the styleguide in watch mode
@@ -154,12 +154,12 @@ tips: If you are starting `js` and `css` to have full control, and you want to l
 
 If you want to add a new component, you must follow these steps:
 
-- Add the new component in `/react` folder with its `README.md` file
-- Expose it in the API by adding it in `react/index.js`
-- Add it in the documentation by modifying `docs/styleguide.config.js`
-- If necessary you can add snapshots for it by modifying `react/examples.spec.jsx` and updating them `yarn makeSpriteAndPalette && yarn build && yarn test -u`
-- Remember to propagate the possible `ref` with `React.forwardRef`. [See forwardRef documentation](https://en.reactjs.org/docs/forwarding-refs.html)
-- Try to think of ARIA attributes if you are coding new components
+* Add the new component in `/react` folder with its `README.md` file
+* Expose it in the API by adding it in `react/index.js`
+* Add it in the documentation by modifying `docs/styleguide.config.js`
+* If necessary you can add snapshots for it by modifying `react/examples.spec.jsx` and updating them `yarn makePalette && yarn build && yarn test -u`
+* Remember to propagate the possible `ref` with `React.forwardRef`. [See forwardRef documentation](https://en.reactjs.org/docs/forwarding-refs.html)
+* Try to think of ARIA attributes if you are coding new components
 
 Be careful to respect MUI API when creating a new component. See [our guidelines to create a new component](./guidelines.md#new-component).
 
@@ -169,22 +169,10 @@ When renaming or moving a Cozy-UI component, it may cause a breaking change. In 
 
 ### Guidelines for component development
 
-- Use material UI whenever possible
-- Override material UI components inside `makeOverrides.js` when necessary
-- Avoid stylus to style new components based on MUI and prefer `/helpers/makeStyles`
-- Use semantic variables for colors from `stylus/settings/palettes.styl`, or color from `theme` objects in `makeStyles`
-
-### Add an icon
-
-If you want to add a new icon to cozy-ui, you must follow these steps:
-
-- If you SVG file is an icon (not an illustration), verify that the file doesn't have any fill or fill-opacity properties. Remove them if necessary
-- Add the SVG in the `assets/icons/[ui || illus]` folder
-- Optimize it with `yarn svgo assets/icons/[ui || illus]/[new icon file name]`
-- Generate the react component by running `yarn makeSvgr assets/icons/[ui || illus]/[new icon file name]`
-- Update the documentation by adding the new file in `react/Icon/Readme.md`. If it's an icon, add it in SVGr icons and Available UI icons sections, or in SVGr illustrations and Available illustrations sections if it's an illustration
-- Don't forget to check the icon's color on different theme (inverted, etc.)
-- Update the tests by running `yarn makeSpriteAndPalette && yarn build && yarn test -u`
+* Use material UI whenever possible
+* Override material UI components inside `makeOverrides.js` when necessary
+* Avoid stylus to style new components based on MUI and prefer `/helpers/makeStyles`
+* Use semantic variables for colors from `stylus/settings/palettes.styl`, or color from `theme` objects in `makeStyles`
 
 ### Develop inside an app
 
@@ -193,10 +181,10 @@ Then you need to link cozy-ui with `yarn link`. Since `cozy-ui` is transpiled, w
 
 ```bash
 cd cozy-ui
-yarn makeSpriteAndPalette # if first time
+yarn makePalette # if first time
 yarn link
 yarn start # Launch transpilation
-yarn makeSpriteAndPalette # if you change icons or palette
+yarn makePalette # if you change palette
 ```
 
 Then in your application folder, you can link to your local Cozy UI.
@@ -229,7 +217,7 @@ yarn build:all && yarn deploy:doc --repo git@github.com:USERNAME/cozy-ui.git
 Be aware that snapshots in unit tests use the transpiled version of cozy-ui. Therefore if you make changes and need to update the snapshots, you need to transpile first.
 
 ```bash
-yarn makeSpriteAndPalette && yarn build && yarn test -u
+yarn makePalette && yarn build && yarn test -u
 ```
 
 We suggest to use `@testing-library/react` over `enzyme` for tests. We have
@@ -274,6 +262,8 @@ Before creating any screenshots, make sure you have built everything:
 yarn build:all
 ```
 
+You may have to change `executablePath` value of `prepareBrowser` function to match your OS configuration.
+
 Now you are ready to create screenshots:
 
 ```bash
@@ -307,30 +297,30 @@ Cozy-ui relies on many packages to work, but we tend to want it to be more agnos
 
 #### Dependencies
 
-- @date-io/date-fns => DatePicker
-- date-fns => DateMonthPicker, DatePicker, I18n
-- react-markdown => Markdown
-- react-select => SelectBox
-- react-virtuoso => Table/Virtualized, GridList/Virtualized
-- rooks => BottomSheet, Table/Virtualized
+* @date-io/date-fns => DatePicker
+* date-fns => DateMonthPicker, DatePicker, I18n
+* react-markdown => Markdown
+* react-select => SelectBox
+* react-virtuoso => Table/Virtualized, GridList/Virtualized
+* rooks => BottomSheet, Table/Virtualized
 
 #### Dependencies for deprecated components
 
-- @popperjs/core => react-popper => ActionMenu/NotInlineWrapper
-- react-remove-scroll => BottomDrawer, Overlay
-- react-swipeable-views => InfosCarroussel, ViewStack
+* @popperjs/core => react-popper => ActionMenu/NotInlineWrapper
+* react-remove-scroll => BottomDrawer, Overlay
+* react-swipeable-views => InfosCarroussel, ViewStack
 
 #### PeerDependencies
 
-- cozy-device-helper [(see peerDeps)](https://github.com/cozy/cozy-libs/blob/master/packages/cozy-device-helper/package.json) => Dialog
-- cozy-intent [(see peerDeps)](https://github.com/cozy/cozy-libs/blob/master/packages/cozy-intent/package.json) => ActionsMenu, Dialog, SelectionBar
-- react-dnd => Table/Virtualized/DnD, GridList/Virtualized/DnD
-- react-dnd-html5-backend => Table/Virtualized/DnD, GridList/Virtualized/DnD
-- twake-i18n => lots of component
+* cozy-device-helper [(see peerDeps)](https://github.com/cozy/cozy-libs/blob/master/packages/cozy-device-helper/package.json) => Dialog
+* cozy-intent [(see peerDeps)](https://github.com/cozy/cozy-libs/blob/master/packages/cozy-intent/package.json) => ActionsMenu, Dialog, SelectionBar
+* react-dnd => Table/Virtualized/DnD, GridList/Virtualized/DnD
+* react-dnd-html5-backend => Table/Virtualized/DnD, GridList/Virtualized/DnD
+* twake-i18n => lots of component
 
 #### PeerDependencies for deprecated components
 
-- cozy-device-helper => ActionMenu, Modal
+* cozy-device-helper => ActionMenu, Modal
 
 ## License
 
@@ -349,10 +339,11 @@ hardware where no one profiles you.
 
 You can reach the Cozy Community by:
 
-- Chatting with us on IRC [#cozycloud](http://webchat.freenode.net/?channels=%23cozycloud) on irc.freenode.net
-- Posting on our [Forum](https://forum.cozy.io)
-- Posting issues on the [Github repos](https://github.com/cozy/)
-- Mentioning us on [Twitter](https://twitter.com/cozycloud)
+* Chatting with us on IRC [#cozycloud](http://webchat.freenode.net/?channels=%23cozycloud) on irc.freenode.net
+* Posting on our [Forum](https://forum.cozy.io)
+* Posting issues on the [Github repos](https://github.com/cozy/)
+* Mentioning us on [Twitter](https://twitter.com/cozycloud)
 
 [react styleguidist]: https://react-styleguidist.js.org/
+
 [argos]: https://github.com/argos-ci/argos
