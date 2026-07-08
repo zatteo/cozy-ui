@@ -6020,6 +6020,11 @@ body {
   border-radius: 0;
   margin-top: 20px;
 }
+.wrapper--10u_4 .react-colorful__pointer {
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+}
 .input--QRNzz {
   width: 72px;
 }
